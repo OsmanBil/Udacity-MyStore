@@ -16,7 +16,8 @@ export class ProductDetailsComponent {
       "name": "",
       "price": 0,
       "url": "",
-      "description": ""
+      "description": "",
+      "quantity": 1
     };
   }
   ngOnInit(): void {

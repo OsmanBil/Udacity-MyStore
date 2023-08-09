@@ -13,7 +13,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { ProductComponent } from './components/product/product.component';
-
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { ProductComponent } from './components/product/product.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
