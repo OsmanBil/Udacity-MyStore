@@ -5,17 +5,25 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ProductListComponent } from './components/product-list/product-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ShopBodyComponent } from './components/shop-body/shop-body.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ShopBodyComponent,
+    ProductListComponent,
+    ProductDetailsComponent,
+    ShoppingCartComponent,
+    OrderConfirmationComponent
   ],
   imports: [
     BrowserModule,
