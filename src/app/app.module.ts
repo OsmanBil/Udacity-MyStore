@@ -12,6 +12,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
     ProductListComponent,
     ProductDetailsComponent,
     ShoppingCartComponent,
-    OrderConfirmationComponent
+    OrderConfirmationComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

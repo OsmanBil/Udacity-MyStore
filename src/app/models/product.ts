@@ -3,13 +3,13 @@ export class Product{
     name: string;
     description: string;
     price: number;
-    imageUrl: string;
+    url: string;
 
     constructor(){
         this.id = 0;
         this.name = "";
         this.description = "";
         this.price = 0;
-        this.imageUrl = "";
+        this.url = "";
     }
 }
