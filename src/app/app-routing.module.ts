@@ -9,6 +9,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 const routes: Routes = [
   { path: '', component: ShopBodyComponent },
   { path: 'product-list', component: ProductListComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'product-details', component: ProductDetailsComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'order-confirmation', component: OrderConfirmationComponent },
