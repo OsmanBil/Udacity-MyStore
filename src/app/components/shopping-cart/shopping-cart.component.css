@@ -1,0 +1,40 @@
+.card-my{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px #ccc;
+    transition: all 0.5s ease-in-out;
+    max-width: 240px;
+    max-height: 121px;
+}
+
+.card-my-body{
+    display: flex!important;
+    flex-direction: row!important;
+}
+
+
+@media (max-width: 768px) {
+    .card-my {
+        width: 200px;
+        max-height: 122px!important;
+        display: flex!important;
+        flex-direction: row!important;
+    }
+    img{
+        max-width: 80px!important;
+        max-height: 120px!important;
+    }
+    .row{
+        max-width: 80%!important;
+        width: auto!important;
+    }
+    .card-my-body{
+        display: flex!important;
+        flex-direction: row!important;
+    }
+}

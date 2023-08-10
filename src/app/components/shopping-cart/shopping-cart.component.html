@@ -1,6 +1,16 @@
 <div *ngFor="let item of cartItems">
-    <p>Produktname: {{ item.product.name }}</p>
-    <p>Preis: {{ item.product.price }}</p>
-    <p>Menge: {{ item.quantity }}</p>
+  <div class="card-my mb-3 m-3">
+    <div class="card-my-body">
+      <div class="col-md-4">
+        <img class="card-img-top" src="{{ item.product.url }}" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body m-3">
+          <h5 class="card-title">{{ item.product.name }}</h5>
+          <p class="card-text">{{item.quantity * item.product.price}} €</p>
+          <p>Amount: {{ item.quantity }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  
+</div>
