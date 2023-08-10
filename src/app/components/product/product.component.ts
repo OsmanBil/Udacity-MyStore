@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductComponent {
   @Input() product: Product;
-  selectedQuantity: number = 1; // Anfangs standardmäßig auf 1 setzen
+  selectedQuantity: number = 1;
 
   constructor(private cartService: CartService) {
     

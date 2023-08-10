@@ -1,1 +1,6 @@
-<p>shopping-cart works!</p>
+<div *ngFor="let item of cartItems">
+    <p>Produktname: {{ item.product.name }}</p>
+    <p>Preis: {{ item.product.price }}</p>
+    <p>Menge: {{ item.quantity }}</p>
+  </div>
+  
