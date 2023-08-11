@@ -14,18 +14,10 @@ export class ProductComponent {
   selectedQuantity: number = 1;
 
   constructor(private cartService: CartService) {
-    this.product = {
-      "id": 0,
-      "name": "",
-      "price": 0,
-      "url": "",
-      "description": "",
-      "quantity": 1
-    };
+    this.product = new Product();
   }
 
-  addToCart(product: Product): void {
-    console.log("Funtz das?");
+  addToCart(): void {
     try {
       this.cartService.addToCart(this.product, +this.selectedQuantity);
     } catch (error) {

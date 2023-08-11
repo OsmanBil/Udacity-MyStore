@@ -13,15 +13,9 @@ export class ProductDetailsComponent {
   selectedQuantity: number = 1;
 
   constructor(private route: ActivatedRoute, private cartService: CartService) {
-    this.product = {
-      "id": 0,
-      "name": "",
-      "price": 0,
-      "url": "",
-      "description": "",
-      "quantity": 1
-    };
+    this.product = new Product();
   }
+
   ngOnInit(): void {
     this.loadData();
   }
@@ -30,20 +24,18 @@ export class ProductDetailsComponent {
     this.cartService.addToCart(this.product, +this.selectedQuantity);
     alert(`The product "${product.name}" has been added to the shopping cart.`);
   }
-  
-
-  async loadData() {
-    const id = +this.route.snapshot.paramMap.get('id')!;
+ 
+  async loadData(): Promise<void> {
+    const id: number = +this.route.snapshot.paramMap.get('id')!;
     try {
-      const response = await fetch('./assets/data.json');
+      const response: Response = await fetch('./assets/data.json');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const products = await response.json();
-      this.product = products.find((product: Product) => product.id === id);
-    } catch (error) {
+      const products: Product[] = await response.json();
+      this.product = products.find((product: Product) => product.id === id)!;
+    } catch (error: any) {
       console.error('There was a problem:', error);
     }
   }
-
 }
