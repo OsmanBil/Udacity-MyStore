@@ -6,24 +6,19 @@ import { Product } from 'src/app/models/product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit{
+
+export class ProductListComponent implements OnInit {
   title: string = "Products";
   products: Product[] = [];
 
   ngOnInit(): void {
     fetch('./assets/data.json').then(res => res.json())
-    .then(jsonData => {
-      this.products = jsonData;
-    });
+      .then(jsonData => {
+        this.products = jsonData;
+      });
   }
 
   onProductAdded(product: Product): void {
-   
-      alert(`Das Produkt "${product.name}" wurde zum Warenkorb hinzugefügt.`);
-
+    alert(`The product "${product.name}" has been added to the shopping cart.`);
   }
-  
-  
-  
-
 }

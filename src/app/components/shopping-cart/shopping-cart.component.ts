@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { Product } from 'src/app/models/product';
 
-
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -19,8 +18,7 @@ export class ShoppingCartComponent implements OnInit {
   address: string = 'adress';
   creditCardNum: string = 'creditCard';
 
-
-  constructor(private cartService: CartService,private decimalPipe: DecimalPipe, private orderService: OrderService, private router: Router) {}
+  constructor(private cartService: CartService, private decimalPipe: DecimalPipe, private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCart();
@@ -32,7 +30,7 @@ export class ShoppingCartComponent implements OnInit {
     }, 0);
     return this.decimalPipe.transform(total, '1.2-2')!;
   }
-  
+
   submitForm(): void {
     const orderData = {
       totalAmount: this.getTotalAmount(),
@@ -42,17 +40,12 @@ export class ShoppingCartComponent implements OnInit {
     };
 
     this.orderService.setOrderData(orderData);
-    
     this.router.navigate(['/order-confirmation']);
-
     this.cartService.clearCart();
   }
 
   removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
-    // Aktualisieren Sie den Warenkorb, um das entfernte Produkt zu reflektieren
     this.cartItems = this.cartService.getCart();
   }
-  
-  
 }

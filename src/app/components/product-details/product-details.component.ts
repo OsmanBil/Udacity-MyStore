@@ -28,7 +28,7 @@ export class ProductDetailsComponent {
 
   addToCart(product: Product): void {
     this.cartService.addToCart(this.product, +this.selectedQuantity);
-    alert(`Das Produkt "${product.name}" wurde zum Warenkorb hinzugefügt.`);
+    alert(`The product "${product.name}" has been added to the shopping cart.`);
   }
   
 
@@ -37,12 +37,12 @@ export class ProductDetailsComponent {
     try {
       const response = await fetch('./assets/data.json');
       if (!response.ok) {
-        throw new Error('Netzwerkantwort war nicht ok');
+        throw new Error('Network response was not ok');
       }
       const products = await response.json();
       this.product = products.find((product: Product) => product.id === id);
     } catch (error) {
-      console.error('Es gab ein Problem:', error);
+      console.error('There was a problem:', error);
     }
   }
 
