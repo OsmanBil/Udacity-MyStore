@@ -16,9 +16,9 @@ export class ShoppingCartComponent implements OnInit {
   cartItems: CartItem[] = [];
   title: string = 'Shopping Cart';
   body: string = 'box';
-  fullName: string = 'fullName';
-  address: string = 'adress';
-  creditCardNum: string = 'creditCard';
+  fullName: string = '';
+  address: string = '';
+  creditCardNum: string = '';
 
   constructor(private cartService: CartService, private decimalPipe: DecimalPipe, private orderService: OrderService, private router: Router) { }
 
