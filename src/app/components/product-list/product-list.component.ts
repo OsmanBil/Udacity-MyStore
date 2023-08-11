@@ -17,4 +17,13 @@ export class ProductListComponent implements OnInit{
     });
   }
 
+  onProductAdded(product: Product): void {
+   
+      alert(`Das Produkt "${product.name}" wurde zum Warenkorb hinzugefügt.`);
+
+  }
+  
+  
+  
+
 }

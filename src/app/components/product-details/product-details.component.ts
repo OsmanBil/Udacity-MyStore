@@ -28,7 +28,9 @@ export class ProductDetailsComponent {
 
   addToCart(product: Product): void {
     this.cartService.addToCart(this.product, +this.selectedQuantity);
+    alert(`Das Produkt "${product.name}" wurde zum Warenkorb hinzugefügt.`);
   }
+  
 
   async loadData() {
     const id = +this.route.snapshot.paramMap.get('id')!;

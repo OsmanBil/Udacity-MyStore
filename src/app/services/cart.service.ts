@@ -36,4 +36,14 @@ export class CartService {
     this.cart = [];
   }
 
+  removeFromCart(product: Product): void {
+    const index = this.cart.findIndex(item => item.product.id === product.id);
+    
+    if (index > -1) {
+      this.cart.splice(index, 1);
+      console.log('Produkt wurde aus dem Warenkorb entfernt');
+    }
+  }
+  
+
 }

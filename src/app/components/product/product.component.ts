@@ -9,6 +9,8 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductComponent {
   @Input() product: Product;
+  @Output() productAdded = new EventEmitter<Product>();
+
   selectedQuantity: number = 1;
 
   constructor(private cartService: CartService) {
@@ -24,8 +26,15 @@ export class ProductComponent {
   }
 
   addToCart(product: Product): void {
-    this.cartService.addToCart(this.product, +this.selectedQuantity);
+    console.log("Funtz das?");
+    try {
+      this.cartService.addToCart(this.product, +this.selectedQuantity);
+    } catch (error) {
+      console.error("Error in addToCart:", error);
+    }
+    this.productAdded.emit(this.product);
   }
+
 
 
 }

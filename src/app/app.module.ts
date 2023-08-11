@@ -7,20 +7,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ShopBodyComponent } from './components/shop-body/shop-body.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartService } from './services/cart.service';
+import { DecimalPipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ShopBodyComponent,
     ProductListComponent,
     ProductDetailsComponent,
     ShoppingCartComponent,
@@ -34,7 +34,7 @@ import { CartService } from './services/cart.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CartService],
+  providers: [CartService, DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
