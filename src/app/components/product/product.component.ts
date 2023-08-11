@@ -14,7 +14,6 @@ export class ProductComponent {
   selectedQuantity: number = 1;
 
   constructor(private cartService: CartService) {
-
     this.product = {
       "id": 0,
       "name": "",
@@ -34,7 +33,4 @@ export class ProductComponent {
     }
     this.productAdded.emit(this.product);
   }
-
-
-
 }
