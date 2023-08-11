@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OrderService } from '../../services/order.service';
+import { Order } from '../../models/order';
 
 @Component({
   selector: 'app-order-confirmation',
@@ -10,12 +11,7 @@ import { OrderService } from '../../services/order.service';
 
 export class OrderConfirmationComponent {
 
-  orderData: {
-    totalAmount: string;
-    fullName: string;
-    address: string;
-    creditCardNum: string;
-  } | null = null;
+  orderData: Order | null = null;
 
   constructor(private orderService: OrderService) { }
 

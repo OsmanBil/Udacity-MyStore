@@ -1,24 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Order } from '../models/order';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  private orderData: {
-    totalAmount: string,
-    fullName: string,
-    address: string,
-    creditCardNum: string
-  } | null = null;
+  private orderData: Order | null = null;
 
   constructor() { }
 
-  setOrderData(data: any): void {
+  setOrderData(data: Order): void {
     this.orderData = data;
   }
 
-  getOrderData() {
+  getOrderData(): Order | null {
     return this.orderData;
   }
 }

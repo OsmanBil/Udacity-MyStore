@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, CartItem } from '../../services/cart.service';
 import { OrderService } from '../../services/order.service';
+import { Order } from '../../models/order';
 import { Router } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { Product } from 'src/app/models/product';
+
 
 @Component({
   selector: 'app-shopping-cart',
@@ -24,20 +26,21 @@ export class ShoppingCartComponent implements OnInit {
     this.cartItems = this.cartService.getCart();
   }
 
-  getTotalAmount(): string {
-    const total = this.cartItems.reduce((acc, item) => {
+
+
+  getTotalAmount(): number {
+    const total: number = this.cartItems.reduce((acc, item) => {
       return acc + (item.quantity * item.product.price);
     }, 0);
-    return this.decimalPipe.transform(total, '1.2-2')!;
+    return +total.toFixed(2);
   }
 
   submitForm(): void {
-    const orderData = {
-      totalAmount: this.getTotalAmount(),
-      fullName: this.fullName,
-      address: this.address,
-      creditCardNum: this.creditCardNum
-    };
+    const orderData = new Order();
+    orderData.totalAmount = this.getTotalAmount();
+    orderData.fullName = this.fullName;
+    orderData.address = this.address;
+    orderData.creditCardNum = this.creditCardNum;
 
     this.orderService.setOrderData(orderData);
     this.router.navigate(['/order-confirmation']);
