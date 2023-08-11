@@ -12,9 +12,13 @@ export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
   ngOnInit(): void {
-    fetch('./assets/data.json').then(res => res.json())
-      .then(jsonData => {
+    fetch('./assets/data.json')
+      .then((res: Response) => res.json())
+      .then((jsonData: Product[]) => {
         this.products = jsonData;
+      })
+      .catch((error: Error) => {
+        console.error("Failed to fetch the product data:", error);
       });
   }
 
