@@ -13,7 +13,7 @@ export class OrderService {
   } | null = null;
 
   constructor() { }
-  
+
   setOrderData(data: any): void {
     this.orderData = data;
   }

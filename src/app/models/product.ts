@@ -1,4 +1,4 @@
-export class Product{
+export class Product {
     id: number;
     name: string;
     description: string;
@@ -6,7 +6,7 @@ export class Product{
     url: string;
     quantity: number;
 
-    constructor(){
+    constructor() {
         this.id = 0;
         this.name = "";
         this.description = "";
