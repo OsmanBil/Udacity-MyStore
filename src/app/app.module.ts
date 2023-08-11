@@ -14,6 +14,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { ProductComponent } from './components/product/product.component';
 import { CartService } from './services/cart.service';
 import { DecimalPipe } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DecimalPipe } from '@angular/common';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [CartService, DecimalPipe],
   bootstrap: [AppComponent]
