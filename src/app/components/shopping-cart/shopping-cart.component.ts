@@ -26,8 +26,6 @@ export class ShoppingCartComponent implements OnInit {
     this.cartItems = this.cartService.getCart();
   }
 
-
-
   getTotalAmount(): number {
     const total: number = this.cartItems.reduce((acc, item) => {
       return acc + (item.quantity * item.product.price);
