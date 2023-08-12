@@ -48,5 +48,6 @@ export class ShoppingCartComponent implements OnInit {
   removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
     this.cartItems = this.cartService.getCart();
+    alert(`The product "${product.name}" has been removed from the shopping cart.`);
   }
 }
