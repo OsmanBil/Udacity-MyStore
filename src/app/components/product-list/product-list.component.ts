@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-list',
@@ -11,15 +12,17 @@ export class ProductListComponent implements OnInit {
   title: string = "Products";
   products: Product[] = [];
 
+  constructor(private http: HttpClient) {}
+
   ngOnInit(): void {
-    fetch('./assets/data.json')
-      .then((res: Response) => res.json())
-      .then((jsonData: Product[]) => {
+    this.http.get<Product[]>('./assets/data.json').subscribe(
+      (jsonData: Product[]) => {
         this.products = jsonData;
-      })
-      .catch((error: Error) => {
+      },
+      (error: any) => {
         console.error("Failed to fetch the product data:", error);
-      });
+      }
+    );
   }
 
   onProductAdded(product: Product): void {
