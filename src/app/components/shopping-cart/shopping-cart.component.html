@@ -30,19 +30,57 @@
         <div class="mb-3">
           <label for="name" class="form-label">Full name</label>
           <input type="text" class="form-control" id="name" name="fullName" aria-describedby="name" required
-            minlength="3" maxlength="16" placeholder="Enter full name" [(ngModel)]="fullName">
+            minlength="3" maxlength="16" placeholder="Enter full name" [(ngModel)]="fullName" #fullNameInput="ngModel">
+          <div *ngIf="fullNameInput.invalid && fullNameInput.dirty">
+            <div *ngIf="fullNameInput.errors?.['required']" class="text-danger">
+              Full name is required.
+            </div>
+            <div *ngIf="fullNameInput.errors?.['minlength']" class="text-danger">
+              Full name must contain at least 3 characters.
+            </div>
+            <div *ngIf="fullNameInput.errors?.['maxlength']" class="text-danger">
+              Full name must not exceed 16 characters.
+            </div>
+          </div>
         </div>
         <div class="mb-3">
-          <label for="adress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="adress" name="address" aria-describedby="adress" required
-            minlength="3" maxlength="32" placeholder="Enter adress" [(ngModel)]="address">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" name="address" aria-describedby="address" required
+            minlength="3" maxlength="32" placeholder="Enter address" [(ngModel)]="address" #addressInput="ngModel">
+          <div *ngIf="addressInput.invalid && addressInput.dirty">
+            <div *ngIf="addressInput.errors?.['required']" class="text-danger">
+              Address is required.
+            </div>
+            <div *ngIf="addressInput.errors?.['minlength']" class="text-danger">
+              Address must contain at least 3 characters.
+            </div>
+            <div *ngIf="addressInput.errors?.['maxlength']" class="text-danger">
+              Address must not exceed 32 characters.
+            </div>
+          </div>
         </div>
         <div class="mb-3">
           <label for="creditCard" class="form-label">Credit card number</label>
           <input type="text" class="form-control" id="creditCard" name="creditCardNum" required minlength="16"
-            maxlength="16" placeholder="Enter credit card number" [(ngModel)]="creditCardNum" pattern="\d*">
-          <div id="creditCard" class="form-text">We'll never share your informations with anyone else.</div>
+                 maxlength="16" placeholder="Enter credit card number" [(ngModel)]="creditCardNum" pattern="\d*" #creditCardInput="ngModel">
+          <div id="creditCardHelp" class="form-text">We'll never share your information with anyone else.</div>
+          
+          <div *ngIf="creditCardInput.invalid && creditCardInput.dirty">
+            <div *ngIf="creditCardInput.errors?.['required']" class="text-danger">
+              Credit card number is required.
+            </div>
+            <div *ngIf="creditCardInput.errors?.['minlength']" class="text-danger">
+              Credit card number must contain exactly 16 digits.
+            </div>
+            <div *ngIf="creditCardInput.errors?.['maxlength']" class="text-danger">
+              Credit card number must contain exactly 16 digits.
+            </div>
+            <div *ngIf="creditCardInput.errors?.['pattern']" class="text-danger">
+              Credit card number should contain only digits.
+            </div>
+          </div>
         </div>
+
         <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
         <ng-template #popContent>Amazing content here</ng-template>
       </form>
