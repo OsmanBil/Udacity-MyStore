@@ -19,6 +19,9 @@ export class ShoppingCartComponent implements OnInit {
   fullName: string = '';
   address: string = '';
   creditCardNum: string = '';
+  nameLength: number = 0;
+  addressLength: number = 0;
+  lastFourDigits: string = '';
 
   constructor(private cartService: CartService, private decimalPipe: DecimalPipe, private orderService: OrderService, private router: Router) { }
 
@@ -49,5 +52,21 @@ export class ShoppingCartComponent implements OnInit {
     this.cartService.removeFromCart(product);
     this.cartItems = this.cartService.getCart();
     alert(`The product "${product.name}" has been removed from the shopping cart.`);
+  }
+
+  handleNameChange(newValue: string) {
+    this.nameLength = newValue.length;
+  }
+
+  handleAddressChange(newValue: string) {
+    this.addressLength = newValue.length;
+  }
+
+  handleCreditCardChange(newValue: string) {
+    if (newValue.length >= 4) {
+      this.lastFourDigits = newValue.slice(-4);
+    } else {
+      this.lastFourDigits = '';
+    }
   }
 }
